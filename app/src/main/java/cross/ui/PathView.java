@@ -64,7 +64,7 @@ public class PathView extends View {
                 R.styleable.PathView);
         Grivity = typearray.getInt(R.styleable.PathView_gravity, 0);
         boundary_color=typearray.getColor(R.styleable.PathView_boundary_color,0xffffffff);
-        isClickColor=typearray.getColor(R.styleable.PathView_boundary_color,0xfffefefe);
+        isClickColor=typearray.getColor(R.styleable.PathView_click_color,0xfffefefe);
     }
 
     @Override

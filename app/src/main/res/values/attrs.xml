@@ -13,5 +13,6 @@
             <enum name="right" value="6" />
         </attr>
         <attr name="boundary_color" format="color"/>
+        <attr name="click_color" format="color"/>
     </declare-styleable>
 </resources>
