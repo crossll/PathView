@@ -16,6 +16,6 @@
         app:boundary_color
         app:click_color
 ## java
-    setOnAreaLoadedCallback();//监听view初始化完成
-    addOnAreaClick();//区域点击效果
+        setOnAreaLoadedCallback();//监听view初始化完成
+        addOnAreaClick();//区域点击效果
         
