@@ -33,6 +33,7 @@ public class PathView extends View {
     private List<PathArea> ListData;//画path数据
     private float pWidth, pHeigh, top, bottom, left, right;//所画区域的矩阵位置和宽高
     private float scale;//缩放的比例
+    private float InitSclale;//初始化缩放比例（最小缩放比例）
     private Matrix mScaleMatrix;    // 缩放矩阵
     private final float[] matrixValues = new float[9];// 用于存放矩阵的9个值
     private int Grivity;//绘制区域在画布的位置
@@ -123,7 +124,7 @@ public class PathView extends View {
             pHeigh = bottom - top;
             int width = mWidth - getPaddingLeft() - getPaddingRight();
             int heigh = mHeigh - getPaddingTop() - getPaddingBottom();
-            scale  = (width / pWidth) > (heigh / pHeigh) ? (heigh / pHeigh) : (width / pWidth);
+            scale = InitSclale= (width / pWidth) > (heigh / pHeigh) ? (heigh / pHeigh) : (width / pWidth);
             initMove();
             mScaleMatrix.postScale(scale, scale);
             areaScale(scale, scale, 0, 0);
@@ -215,10 +216,10 @@ public class PathView extends View {
             float scaleFactor = scaleGestureDetector.getScaleFactor();
             scale = getScale();
             if ((scale < 3 && scaleFactor > 1.0f)
-                    || (scale > 1 && scaleFactor < 1.0f)) {
+                    || (scale > InitSclale && scaleFactor < 1.0f)) {
                 // 最大值最小值判断
-                if (scaleFactor * scale < 1) {
-                    scaleFactor = 1 / scale;
+                if (scaleFactor * scale < InitSclale) {
+                    scaleFactor = InitSclale / scale;
                 }
                 if (scaleFactor * scale > 3) {
                     scaleFactor = 3 / scale;

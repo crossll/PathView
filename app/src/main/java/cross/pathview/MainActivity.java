@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
             @Override
             public void OnClick(PathArea pathArea) {
                 Toast.makeText(MainActivity.this,"点击了："+pathArea.getAreaName(),Toast.LENGTH_SHORT).show();
-                
+
             }
         });
     }
