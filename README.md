@@ -8,10 +8,10 @@
         android:layout_height="400dip"
         android:background="#ffee00"
         android:padding="10dip"
-        app:gravity="center" />
-        
-        more
+        app:gravity="center" />   
+   
+   more
        
-        app:gravity="center"
-        app:boundary_color="#FFFFFF"
-        app:click_color=""
+        app:gravity
+        app:boundary_color
+        app:click_color
