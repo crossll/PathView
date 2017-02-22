@@ -9,7 +9,9 @@
         android:background="#ffee00"
         android:padding="10dip"
         app:gravity="center" />
-       # more
+        
+        more
+       
         app:gravity="center"
         app:boundary_color="#FFFFFF"
         app:click_color=""
