@@ -38,8 +38,10 @@ public class PathView extends View {
     private final float[] matrixValues = new float[9];// 用于存放矩阵的9个值
     private int Grivity;//绘制区域在画布的位置
     private int boundary_color;//区域边框颜色
+    private int isClickColor;//点中区域颜色
     private OnAreaLoadedCallback mOnAreaLoadedCallback;
     private OnAreaClick mOnAreaClick;
+    private int isChoose=-1;
     public PathView(Context context) {
         super(context);
         mContext = context;
@@ -62,6 +64,7 @@ public class PathView extends View {
                 R.styleable.PathView);
         Grivity = typearray.getInt(R.styleable.PathView_gravity, 0);
         boundary_color=typearray.getColor(R.styleable.PathView_boundary_color,0xffffffff);
+        isClickColor=typearray.getColor(R.styleable.PathView_boundary_color,0xfffefefe);
     }
 
     @Override
@@ -94,7 +97,11 @@ public class PathView extends View {
 
     private void DrawArea(Canvas canvas) {
         for (int i = 0; i < ListData.size(); i++) {
-            paintArea.setColor(ListData.get(i).getAreaColor());
+            if(isChoose==i){
+                paintArea.setColor(isClickColor);
+            }else{
+                paintArea.setColor(ListData.get(i).getAreaColor());
+            }
             canvas.drawPath(ListData.get(i).getPath(), paintArea);
             canvas.drawPath(ListData.get(i).getPath(), paintBoundary);
         }
@@ -249,6 +256,8 @@ public class PathView extends View {
                     (int) (top), (int) (right), (int) (bottom)));
             if (re.contains((int) pMotionEvent.getX(), (int) pMotionEvent.getY())) {
                 mOnAreaClick.OnClick(ListData.get(i));
+                isChoose=i;
+                invalidate();
             }
         }
     }
