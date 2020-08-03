@@ -20,5 +20,8 @@ Android draw svg vector
 ## java
        setOnAreaLoadedCallback();//监听view初始化成
        addOnAreaClick();//区域点击效果
+ #网络请求库
+#简介
+本库基于[OKHTTP]框架进行的Android网络请求基本封装
 
         
